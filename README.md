@@ -230,3 +230,62 @@ cd customer-segmentation-ml
 
 
 └── main.py
+```
+
+2. Create virtual environment
+
+```
+python -m venv .venv
+```
+
+3. Activate environment
+
+```
+.venv\Scripts\activate
+
+```
+4. Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+5. Open Jupyter Notebook
+
+```
+jupyter notebook
+```
+
+
+# Important Files
+--------------------
+
+```
+notebooks/01_Data_Loading_and_Cleaning.ipynb
+notebooks/02_Exploratory_Data_Analysis.ipynb
+notebooks/03_Feature_Engineering_RFM.ipynb
+notebooks/04_KMeans_Clustering.ipynb
+notebooks/05_Cluster_Visualization.ipynb
+notebooks/06_Model_Evaluation.ipynb
+
+```
+
+# Outputs
+----------
+
+The project generates the following outputs:
+
+cleaned transaction dataset
+RFM dataset
+customer segments dataset
+cluster summary table
+evaluation metrics CSV
+saved plots for report
+trained scaler and K-Means model
+
+
+# Conclusion
+-------------
+
+This project demonstrates how Machine Learning can be used to transform raw transaction data into business insight.
+By combining RFM analysis, clustering, and evaluation metrics, the project identifies actionable customer segments that can improve retention, revenue, and marketing efficiency.
