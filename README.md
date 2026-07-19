@@ -1,56 +1,221 @@
-# Exploratory Data Analysis: Business Observations
+<div align="center">
 
-## 1) Quantity Distribution
-- Most customers buy only a small number of items in a single transaction.
-- The distribution is heavily right-skewed, which means a few orders are much larger than the rest.
-- There are some very large bulk orders, and these are outliers.
-- This suggests the business has both regular retail buyers and a few wholesale-style buyers.
+# Customer Segmentation using Machine Learning
 
-## 2) Unit Price Distribution
-- Most products are priced on the lower side.
-- A small number of products have very high prices and appear as outliers.
-- The business mainly sells affordable items, with only a few premium products.
-- This means pricing is concentrated in the low-to-mid range.
+### RFM Analysis + K-Means Clustering for Retail Customer Insights
 
-## 3) Total Transaction Value
-- Most transactions have low total value.
-- A small number of purchases create very high revenue.
-- The revenue pattern is also right-skewed, so only a few orders contribute a lot.
-- This shows that high-value customers are important for the business.
+</div>
 
-## 4) Top Countries by Revenue
-- The United Kingdom contributes the highest revenue by a huge margin.
-- Other countries contribute much less compared to the UK.
-- This means the business depends mainly on the UK market.
-- International sales exist, but they are still a small share of total revenue.
+---
 
-## 5) Top Customers
-- A small number of customers generate most of the revenue.
-- Customer 14646 is the highest revenue-generating customer in the dataset.
-- These customers are very valuable and should be retained carefully.
-- They are good candidates for loyalty offers and personalized marketing.
+## Project Overview
 
-## 6) Monthly Sales Trend
-- Sales are moderate in the early months and rise strongly near the end of the year.
-- Revenue increases a lot from September to November.
-- November shows the highest sales.
-- The drop in December is likely because the dataset has only partial data for that month.
-- This pattern suggests seasonal demand, possibly due to holiday shopping.
+This project segments retail customers into meaningful groups based on purchasing behavior using **Machine Learning**.  
+The workflow uses **RFM (Recency, Frequency, Monetary)** analysis, outlier handling, logarithmic transformation, feature scaling, and **K-Means clustering** to identify customer groups that can be targeted with different marketing strategies.
 
-## 7) Correlation Analysis
-- Quantity has a very strong positive relation with Total Price.
-- This means more items bought usually leads to higher revenue.
-- Unit Price has only a weak relation with Total Price.
-- Quantity and Unit Price are almost not related.
-- So, revenue is driven more by how many items people buy than by product price alone.
+The final output includes:
+- clean transactional data
+- customer-level RFM dataset
+- clustering results
+- cluster interpretation
+- business recommendations
+- evaluation metrics
+- visualizations and report-ready outputs
 
-## Overall Business Summary
-- Most customers make small, low-value purchases.
-- A few customers contribute a very large part of the revenue.
-- The UK is the main market for the business.
-- Sales increase at the end of the year, which shows seasonality.
-- Quantity is more important than price for revenue growth.
-- Customer segmentation will help the business identify loyal buyers, high-value customers, and low-engagement customers for better marketing.
+---
 
-## Short Conclusion
-This dataset shows a real retail business with uneven buying patterns, seasonal sales growth, and a strong dependence on a small number of high-value customers. Customer segmentation will help the company target customers better and improve revenue.
+## Problem Statement
+
+Retail businesses often collect large volumes of transaction data but struggle to turn it into actionable customer insights.  
+Without segmentation, marketing campaigns become broad, inefficient, and less effective.
+
+The goal of this project is to automatically group customers with similar buying patterns so that the business can:
+- identify high-value customers
+- find loyal customers
+- detect inactive or lost customers
+- improve retention and marketing performance
+
+---
+
+## Objectives
+
+- Collect and clean retail transaction data
+- Perform exploratory data analysis
+- Engineer customer-level RFM features
+- Detect and analyze outliers
+- Apply logarithmic transformation to reduce skewness
+- Standardize features for clustering
+- Use K-Means to segment customers
+- Evaluate the clustering quality
+- Interpret each customer segment in business terms
+- Provide marketing recommendations for each cluster
+
+---
+
+## Dataset
+
+### Dataset Used
+**Online Retail Dataset**
+
+### Source
+UCI Machine Learning Repository
+
+### Dataset Size
+- **541,909** transaction records
+- **8** original columns
+
+### Key Columns
+- `InvoiceNo`
+- `StockCode`
+- `Description`
+- `Quantity`
+- `InvoiceDate`
+- `UnitPrice`
+- `CustomerID`
+- `Country`
+
+### Why this dataset?
+This dataset is ideal for customer segmentation because it contains real transaction history, customer IDs, purchase values, and time-based behavior.
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook
+- Joblib
+
+---
+
+## Skills Required
+
+This project uses the following skills:
+
+- Data cleaning
+- Exploratory Data Analysis
+- Feature engineering
+- Outlier detection
+- Log transformation
+- Feature scaling
+- Unsupervised learning
+- K-Means clustering
+- Cluster evaluation
+- Business interpretation
+- Data visualization
+- Report writing
+- Git and GitHub
+
+---
+
+## Project Workflow
+
+1. Load raw retail data
+2. Clean missing, duplicate, and invalid records
+3. Perform EDA to understand customer behavior
+4. Create RFM features:
+   - Recency
+   - Frequency
+   - Monetary
+5. Detect outliers using the IQR method
+6. Apply `log1p` transformation to reduce skewness
+7. Scale the features using `StandardScaler`
+8. Use Elbow Method and Silhouette Score to choose K
+9. Train K-Means clustering model
+10. Analyze and name each customer segment
+11. Generate business insights and recommendations
+12. Save outputs, plots, and final reports
+
+---
+
+## Final Customer Segments
+
+The final clustering produced four meaningful groups:
+
+- **Champions / VIP Customers**
+- **Loyal Regular Customers**
+- **New / Promising Customers**
+- **Lost Customers**
+
+These segments help the business understand which customers should be retained, nurtured, reactivated, or rewarded.
+
+---
+
+## Model Evaluation
+
+The final clustering model was evaluated using standard clustering metrics:
+
+- **Silhouette Score:** `0.3375`
+- **Calinski-Harabasz Index:** `3328.34`
+- **Davies-Bouldin Index:** `1.0086`
+
+These results indicate that the clustering produced meaningful and usable customer groups for business analysis.
+
+---
+
+## Key Business Insights
+
+- A small group of customers contributes a large share of total revenue
+- Many customers are inactive and can be targeted with reactivation campaigns
+- Loyal customers can be upgraded into VIP segments
+- New customers can be converted into repeat buyers with onboarding offers
+- The business can improve revenue using segment-specific strategies
+
+---
+
+## Marketing Recommendations
+
+### Champions / VIP Customers
+- Exclusive offers
+- Loyalty rewards
+- Premium support
+- Early access to products
+
+### Loyal Regular Customers
+- Membership benefits
+- Upselling
+- Bundle offers
+- Personalized recommendations
+
+### New / Promising Customers
+- Welcome offers
+- Follow-up emails
+- Product suggestions
+- Repeat-purchase incentives
+
+### Lost Customers
+- Win-back campaigns
+- Discount coupons
+- Re-engagement emails
+- Reminder-based promotions
+
+---
+
+## Repository Structure
+
+```text
+customer-segmentation-ml/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│
+├── src/
+│
+├── reports/
+│   └── figures/
+│
+├── models/
+│
+├── outputs/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+└── main.py
